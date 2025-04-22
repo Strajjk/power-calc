@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Калькулятор мощности</title>
+</head>
+<body>
+  <h1>Калькулятор мощности</h1>
+  <p>Введите мощности по каждому ТГ:</p>
+  <input type="number" id="tg1" placeholder="ТГ1"> МВт<br>
+  <input type="number" id="tg2" placeholder="ТГ2"> МВт<br>
+  <input type="number" id="tg3" placeholder="ТГ3"> МВт<br>
+  <input type="number" id="tg4" placeholder="ТГ4"> МВт<br><br>
+  <button onclick="calc()">Рассчитать</button>
+  <h2 id="result">Суммарная мощность: 0 МВт</h2>
+
+  <script>
+    function calc() {
+      const tgs = ['tg1', 'tg2', 'tg3', 'tg4'].map(id => parseFloat(document.getElementById(id).value) || 0);
+      const sum = tgs.reduce((a, b) => a + b, 0);
+      document.getElementById("result").innerText = "Суммарная мощность: " + sum + " МВт";
+    }
+  </script>
+</body>
+</html>
